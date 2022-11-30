@@ -72,25 +72,25 @@ class Classifier:
             self.net = nn.Sequential(
                 
                 nn.Conv2d(3, 32, kernel_size=5, stride=1, padding=2), # in_channels = 3 (RGB), out_channels=64 (random), padding = kernel_size/2
-                # 64x(224x224)
+                # 32x(224x224)
                 nn.ReLU(inplace=True),
-                # 64x(224x224)
+                # 32x(224x224)
                 nn.MaxPool2d(kernel_size=3, stride=2),
-                # 64x(111x111)
+                # 32x(111x111)
                 
                 nn.Conv2d(32, 64, kernel_size=5, padding=2),
-                # 128x(111x111)
+                # 64x(111x111)
                 nn.ReLU(inplace=True),
-                # 128x(111x111)
+                # 64x(111x111)
                 nn.MaxPool2d(kernel_size=3, stride=2),
-                # 128x(55x55)
+                # 64x(55x55)
                 
                 nn.Conv2d(64, 128, kernel_size=3, stride=2),
-                # 256x(27x27)
+                # 128x(27x27)
                 nn.ReLU(inplace=True),
-                # 256x(27x27)
+                # 128x(27x27)
                 nn.MaxPool2d(kernel_size=3, stride=2),
-                # 256x(13x13)
+                # 128x(13x13)
                 
                 nn.Flatten(),
                 # 2304 = 128*13*13
