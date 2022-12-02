@@ -8,9 +8,13 @@
 - printing execution time
 - printing graphs for accuracy and loss
 
+<br>
+
 ## Motivation
 
 According to the World Cancer Research Fund, among all cancers, skin cancer is the 19th most common. Among all skin cancers, malignant and benign are the deadliest. A malignant tumor is a type of cancerous tumor that spreads and expands in a patient's body. They can infiltrate other tissues and organs and develop and spread unchecked. The importance of detecting and treating cancer in early malignant skin growth cannot be overstated. On the contrary, a benign tumor has the capability to develop, but it is not going to spread. When it comes to benign skin growths, knowing the common signs and symptoms of those that could be malignant is critical, as is seeking medical attention when skin growths show suspect.
+
+<br>
 
 ## Dataset Description
 
@@ -35,6 +39,46 @@ You can download the dataset [here](https://www.kaggle.com/datasets/hasnainjaved
     <td>7300</td>
   </tr>
 </table>
+
+<br>
+
+## Accuracy of different nets with default parameters
+
+<table>
+  <tr>
+    <td colspan="5"></td>
+  </tr>
+  <tr>
+    <td><b>Set</b></td>
+    <td><b>Resnet50</b></td>
+    <td><b>Alexnet</b></td>
+    <td><b>Squeezenet</b></td>
+    <td><b>Custom CNN</b></td>
+  </tr>
+  <tr>
+    <td>Train</td>
+    <td>86.94</td>
+    <td>86.50</td>
+    <td>85.13</td>
+    <td>84.25</td>
+  </tr>
+  <tr>
+    <td>Validation</td>
+    <td>86.62</td>
+    <td>86.52</td>
+    <td>86.14</td>
+    <td>86.24</td>
+  </tr>
+    <tr>
+    <td>Test</td>
+    <td>87.25</td>
+    <td>84.52</td>
+    <td>87.54</td>
+    <td>84.47</td>
+  </tr>
+</table>
+
+<br>
 
 ## CNN architecture
 ### Transfer learning
@@ -76,6 +120,8 @@ self.net = nn.Sequential(
                 )
 ```
 
+<br>
+
 ## How to use this code
 
 You'll need [Git](https://git-scm.com) to be installed on your computer.
@@ -88,7 +134,11 @@ $ git clone https://github.com/natasabrisudova/SkinCancer-CNN
 
 Then in command prompt run:
 ```
-# example to train your net on the data using GPU (dir 'data' containing folders: malignant, benign)
-$ skin_cancer.py train data --device=cuda:0
+# example to train your net (dir 'data' containing folders: malignant, benign)
+$ skin_cancer.py train data 
 ```
+
+
+
+
 
