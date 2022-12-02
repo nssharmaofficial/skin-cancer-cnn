@@ -36,14 +36,14 @@ class Classifier:
             # about weights should either disappear or I should change it into 'True' (as i dont have any learned weights)
             if backbone=='resnet': 
                 self.net = torch.hub.load('pytorch/vision:v0.6.0', 'resnet50', pretrained=True)
+                for param in self.net.parameters():
+                    param.requires_grad = False
             
             if backbone=='alexnet': 
                 self.net = torch.hub.load('pytorch/vision:v0.6.0', 'alexnet', pretrained=True) 
 
             if backbone=='squeezenet': 
                 self.net = torch.hub.load('pytorch/vision:v0.6.0', "squeezenet1_0", pretrained=True) 
-            for param in self.net.parameters():
-                param.requires_grad = True
     
             # adding a new (learnable) final classifier (fc)
             self.net.fc = nn.Linear(2048, self.num_outputs)
