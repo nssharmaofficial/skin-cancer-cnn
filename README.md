@@ -3,10 +3,12 @@
 
 ![](https://api.visitorbadge.io/api/VisitorHit?user=natasabrisudova&repo=SkinCancer-CNN&countColor=%237B1E7A)
 
+Work still in progress !
+
 ### Things to add:
-- more pre-trained models
+- add more pre-trained models (.pth)
 - printing execution time
-- printing graphs for accuracy and loss
+- add UI and function to try with own image
 
 <br>
 
