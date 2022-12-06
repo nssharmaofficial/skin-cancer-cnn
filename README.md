@@ -134,8 +134,8 @@ $ git clone https://github.com/natasabrisudova/SkinCancer-CNN
 
 Then in command prompt run:
 ```
-# example to train your net (dir 'data' containing folders: malignant, benign)
-$ skin_cancer.py train data 
+# example to evaluate the net on the data (dir 'data' with folders: malignant, benign)
+$ skin_cancer.py eval data 
 ```
 
 
