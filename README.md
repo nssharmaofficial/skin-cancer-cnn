@@ -1,88 +1,30 @@
-# SkinCancer-CNN
- Skin cancer classification in pytorch using CNN
-
-![](https://api.visitorbadge.io/api/VisitorHit?user=natasabrisudova&repo=SkinCancer-CNN&countColor=%237B1E7A)
-
-Work still in progress !
-
-### Things to add:
-- add more pre-trained models (.pth)
-- printing execution time
-- add UI and function to try with own image
-
-<br>
+# Skin cancer CNN
 
 ## Motivation
 
 According to the World Cancer Research Fund, among all cancers, skin cancer is the 19th most common. Among all skin cancers, malignant and benign are the deadliest. A malignant tumor is a type of cancerous tumor that spreads and expands in a patient's body. They can infiltrate other tissues and organs and develop and spread unchecked. The importance of detecting and treating cancer in early malignant skin growth cannot be overstated. On the contrary, a benign tumor has the capability to develop, but it is not going to spread. When it comes to benign skin growths, knowing the common signs and symptoms of those that could be malignant is critical, as is seeking medical attention when skin growths show suspect.
 
-<br>
-
 ## Dataset Description
 
 You can download the dataset [here](https://www.kaggle.com/datasets/hasnainjaved/melanoma-skin-cancer-dataset-of-10000-images).
 
-<p> Dataset overview:</p>
+Dataset overview:
 
-<table>
-  <tr>
-    <td colspan="3"></td>
-  </tr>
-  <tr>
-    <td><b>Class</b></td>
-    <td><b>Examples</b></td>
-  </tr>
-  <tr>
-    <td>Malignant</td>
-    <td>6602</td>
-  </tr>
-  <tr>
-    <td>Benign</td>
-    <td>7300</td>
-  </tr>
-</table>
-
-<br>
+| **Class**   | **Examples** |
+|-------------|--------------|
+| Malignant   | 6602         |
+| Benign      | 7300         |
 
 ## Accuracy of different nets with default parameters
 
-<table>
-  <tr>
-    <td colspan="5"></td>
-  </tr>
-  <tr>
-    <td><b>Set</b></td>
-    <td><b>Resnet50</b></td>
-    <td><b>Alexnet</b></td>
-    <td><b>Squeezenet</b></td>
-    <td><b>Custom CNN</b></td>
-  </tr>
-  <tr>
-    <td>Train</td>
-    <td>86.94</td>
-    <td>86.50</td>
-    <td>85.13</td>
-    <td>84.25</td>
-  </tr>
-  <tr>
-    <td>Validation</td>
-    <td>86.62</td>
-    <td>86.52</td>
-    <td>86.14</td>
-    <td>86.24</td>
-  </tr>
-    <tr>
-    <td>Test</td>
-    <td>87.25</td>
-    <td>84.52</td>
-    <td>87.54</td>
-    <td>84.47</td>
-  </tr>
-</table>
-
-<br>
+| **Set**       | **Resnet50** | **Alexnet** | **Squeezenet** | **Custom CNN** |
+|---------------|--------------|-------------|----------------|----------------|
+| Train         | 86.94        | 86.50       | 85.13          | 84.25          |
+| Validation    | 86.62        | 86.52       | 86.14          | 86.24          |
+| Test          | 87.25        | 84.52       | 87.54          | 84.47          |
 
 ## CNN architecture
+
 ### Transfer learning
 
 Pretrained nets used in transfer learning:
@@ -91,6 +33,7 @@ Pretrained nets used in transfer learning:
 - [Squeezenet](https://pytorch.org/hub/pytorch_vision_squeezenet/)
 
 With final linear classifier:
+
 ```python
 self.net.fc = nn.Linear(2048, self.num_outputs)
 ```
@@ -101,7 +44,6 @@ self.net.fc = nn.Linear(2048, self.num_outputs)
 
 ```python
 self.net = nn.Sequential(
-                
                 nn.Conv2d(3, 32, kernel_size=5, stride=1, padding=2), 
                 nn.ReLU(inplace=True),
                 nn.MaxPool2d(kernel_size=3, stride=2),
@@ -119,23 +61,20 @@ self.net = nn.Sequential(
                 nn.ReLU(inplace=True),
                 nn.Dropout(),
                 nn.Linear(2048, self.num_outputs)
-                )
+           )
 ```
-
-<br>
 
 ## How to use this code
 
-You'll need [Git](https://git-scm.com) to be installed on your computer.
-```
-# Clone this repository
-$ git clone https://github.com/natasabrisudova/SkinCancer-CNN
+Clone this repository:
+
+```bash
+git clone https://github.com/natasabrisudova/SkinCancer-CNN
 ```
 
-<br>
+Then run:
 
-Then in command prompt run:
-```
+```bash
 # example to evaluate the net on the data (dir 'data' with folders: malignant, benign)
 $ skin_cancer.py eval data 
 ```
